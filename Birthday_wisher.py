@@ -53,7 +53,7 @@ def check_and_send_birthday_emails():
 
 # scheduler
 def continuous_check():
-    schedule.every().day.at("23:21").do(check_and_send_birthday_emails)
+    schedule.every().day.at("00:00").do(check_and_send_birthday_emails)
 
     print("The program is running and will check for birthdays daily at 12:00 AM.")
     print("Press Ctrl+C to exit.")
