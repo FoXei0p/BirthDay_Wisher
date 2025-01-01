@@ -8,7 +8,7 @@ import schedule
 
 print("\n--- Birthday Wisher ---")
 
-# Load env file
+# Load env file check the .env file for instruction
 load_dotenv()
 my_email = os.getenv("EMAIL_ID")
 my_password = os.getenv("APP_PASSWORD")
