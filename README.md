@@ -4,8 +4,7 @@ This project is a Python-based application that sends birthday wishes via email.
 
 
 
-- Uses environment variables for secure you email and app passwords.
+- Uses environment variables for secure you email and app passwords from https://myaccount.google.com/apppasswords.
 - Add friend's name, email, and date of birth.
-- Store friend details in a CSV file.
-- Check daily for birthdays and send a happy birthday email.
-- Continuous checking for birthdays using schedule library.
+- Store's friend details in a CSV file.
+- Check daily on 12AM for birthdays and send a happy birthday email.
