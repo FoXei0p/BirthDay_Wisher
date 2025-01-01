@@ -6,25 +6,26 @@ import time
 from dotenv import load_dotenv
 import schedule
 
+print("\n--- Birthday Wisher ---")
+
 # Load env file
 load_dotenv()
 my_email = os.getenv("EMAIL_ID")
 my_password = os.getenv("APP_PASSWORD")
 
-
+# On which time its should check 00:00 means 12AM  (24hr)format. 
+timestamp = 00:00
 # Add friends details
 def add_friend():
     name = input("Enter your friend's name: ")
     email = input(f"Enter {name}'s email: ")
     dob = input(f"Enter {name}'s date of birth (YYYY-MM-DD): ")
     
-
     # Save details to CSV
     with open("friends.csv", "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([name, email, dob])
     print(f"{name}'s details have been saved!")
-
 
 # Check for birthdays and send emails
 def check_and_send_birthday_emails():
@@ -50,26 +51,23 @@ def check_and_send_birthday_emails():
     except FileNotFoundError:
         print("No friends saved yet. Add some friends first!")
 
-
 # scheduler
 def continuous_check():
-    schedule.every().day.at("00:00").do(check_and_send_birthday_emails)
+    schedule.every().day.at(timestamp).do(check_and_send_birthday_emails)
 
-    print("The program is running and will check for birthdays daily at 12:00 AM.")
+    print(f"The program is running and will check for birthdays daily at {timestamp} (24hr format).")
     print("Press Ctrl+C to exit.")
     while True:
         schedule.run_pending()
         time.sleep(1)
 
-
 # Main menu
 def main_menu():
     while True:
-        print("\n--- Birthday Wisher ---")
         print("1. Add a Friend")
         print("2. Start Continuous Birthday Check")
         print("3. Exit")
-        choice = input("Enter your choice (1, 2, or 3): ")
+        choice = input("Enter your choice: ")
         
         if choice == "1":
             add_friend()
@@ -79,8 +77,7 @@ def main_menu():
             print("Goodbye!")
             break
         else:
-            print("Invalid choice. Please try again.")
-
+            print("\n Please Choose between 1,2 or 3.")
 
 # Run main program
 if __name__ == "__main__":
