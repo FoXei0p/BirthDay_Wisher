@@ -14,7 +14,8 @@ my_email = os.getenv("EMAIL_ID")
 my_password = os.getenv("APP_PASSWORD")
 
 # On which time its should check 00:00 means 12AM  (24hr)format. 
-timestamp = 00:00
+timestamp = '00:00'
+
 # Add friends details
 def add_friend():
     name = input("Enter your friend's name: ")
