@@ -9,7 +9,7 @@ import schedule
 # Load env file
 load_dotenv()
 my_email = os.getenv("EMAIL_ID")
-my_password = os.getenv("EMAIL_PASSWORD")
+my_password = os.getenv("APP_PASSWORD")
 
 
 # Add friends details
